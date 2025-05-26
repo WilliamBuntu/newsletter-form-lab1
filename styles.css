@@ -1,0 +1,457 @@
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: linear-gradient(135deg, hsl(234, 29%, 20%) 0%, hsl(235, 18%, 26%) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container and Layout */
+.container {
+    background: hsl(0, 0%, 100%);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+}
+
+.content {
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Typography */
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: hsl(234, 29%, 20%);
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: hsl(234, 29%, 20%);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Features List */
+.features {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(234, 29%, 20%);
+    line-height: 1.5;
+}
+
+.feature-item::before {
+    content: "✓";
+    background: hsl(4, 100%, 67%);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: hsl(234, 29%, 20%);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.error-message {
+    font-size: 12px;
+    font-weight: 700;
+    color: hsl(4, 100%, 67%);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid hsl(231, 7%, 80%);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: hsl(234, 29%, 20%);
+    transition: all 0.3s ease;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: hsl(234, 29%, 20%);
+    box-shadow: 0 0 0 3px hsla(234, 29%, 20%, 0.1);
+}
+
+.form-input:hover {
+    border-color: hsl(234, 29%, 20%);
+}
+
+.form-input::placeholder {
+    color: hsl(231, 7%, 60%);
+}
+
+/* Error State */
+.form-input.error {
+    border-color: hsl(4, 100%, 67%);
+    background-color: hsla(4, 100%, 67%, 0.1);
+    color: hsl(4, 100%, 67%);
+}
+
+.form-input.error:focus {
+    border-color: hsl(4, 100%, 67%);
+    box-shadow: 0 0 0 3px hsla(4, 100%, 67%, 0.1);
+}
+
+.form-input.error::placeholder {
+    color: hsl(4, 100%, 67%);
+}
+
+/* Button Styles */
+.submit-btn {
+    width: 100%;
+    background: hsl(234, 29%, 20%);
+    color: white;
+    border: none;
+    padding: 18px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, hsl(4, 100%, 67%) 0%, hsl(15, 100%, 61%) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 99, 99, 0.3);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsla(4, 100%, 67%, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Modal Popup */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    -webkit-backdrop-filter: blur();
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+    display: flex;
+
+}
+
+.modal-content {
+    background: hsl(0, 0%, 100%);
+    border-radius: 24px;
+    padding: 48px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 80vh;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    transform: scale(0.8);
+    animation: modalSlideIn 0.3s ease-out forwards;
+    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: scale(0.8) translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    color: hsl(4, 100%, 67%);
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: hsl(234, 29%, 20%);
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.success-text {
+    color: hsl(234, 29%, 20%);
+    line-height: 1.5;
+    margin-bottom: 32px;
+    font-size: 16px;
+}
+
+.dismiss-btn {
+    background: hsl(234, 29%, 20%);
+    color: white;
+    border: none;
+    padding: 18px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.dismiss-btn:hover {
+    background: hsl(4, 100%, 67%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 99, 99, 0.3);
+}
+
+.dismiss-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsla(4, 100%, 67%, 0.3);
+}
+
+.dismiss-btn:active {
+    transform: translateY(0);
+}
+
+/* Image Section */
+.image-section {
+    background: linear-gradient(135deg, hsl(4, 100%, 67%) 0%, hsl(15, 100%, 61%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600"><rect width="400" height="600" fill="%23FF6155"/><rect x="50" y="100" width="300" height="200" rx="12" fill="white" opacity="0.9"/><rect x="70" y="120" width="60" height="8" fill="%23374151"/><rect x="70" y="140" width="200" height="6" fill="%23D1D5DB"/><rect x="70" y="155" width="150" height="6" fill="%23D1D5DB"/><rect x="70" y="170" width="180" height="6" fill="%23D1D5DB"/><circle cx="320" cy="350" r="40" fill="white" opacity="0.9"/><text x="320" y="360" text-anchor="middle" fill="%23374151" font-family="Arial" font-size="24" font-weight="bold">94</text><path d="M100 400 Q200 350 300 380 Q350 390 380 360" stroke="white" stroke-width="4" fill="none" opacity="0.8"/></svg>') center/cover;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.form-input.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    .image-section {
+        order: -1;
+        min-height: 300px;
+        border-radius: 0 0 24px 24px;
+    }
+
+    .content {
+        padding: 40px 24px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .features {
+        margin-bottom: 32px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    /* Mobile Modal Adjustments */
+    .modal-content {
+        padding: 32px 24px;
+        max-width: 90%;
+        margin: 20px;
+        border-radius: 16px;
+    }
+
+    .modal-content .success-title {
+        font-size: 2rem;
+    }
+
+    .modal-content .success-text {
+        font-size: 14px;
+    }
+}
+
+/* Tablet Responsive Design */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 700px;
+    }
+
+    .content {
+        padding: 50px 40px;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .success-title {
+        font-size: 3rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .form-input {
+        border-width: 2px;
+    }
+    
+    .submit-btn, .dismiss-btn {
+        border: 2px solid transparent;
+    }
+    
+    .submit-btn:focus, .dismiss-btn:focus {
+        border-color: hsl(4, 100%, 67%);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Subscription</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="main-content" id="mainContent">
+                <h1 class="title">Stay updated!</h1>
+                <p class="subtitle">Join 60,000+ product managers receiving monthly updates on:</p>
+
+                <ul class="features">
+                    <li class="feature-item">Product discovery and building what matters</li>
+                    <li class="feature-item">Measuring to ensure updates are a success</li>
+                    <li class="feature-item">And much more!</li>
+                </ul>
+
+                <form class="newsletter-form" id="newsletterForm" novalidate>
+                    <div class="form-group">
+                        <div class="label-container">
+                            <label class="form-label" for="email">Email address</label>
+                            <span class="error-message" id="errorMessage" aria-live="polite"></span>
+                        </div>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-input" 
+                            placeholder="email@company.com"
+                            aria-describedby="errorMessage"
+                            required
+                        >
+                    </div>
+                    <button type="submit" class="submit-btn">Subscribe to monthly newsletter</button>
+                </form>
+            </div>
+
+
+        </div>
+        <div class="image-section">
+            <div class="image-placeholder">
+                <!-- Replace this with your actual image -->
+                <img src="/assets/images/illustration-sign-up-desktop.svg" alt="Newsletter illustration" class="hero-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="success-icon">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="32" fill="currentColor"/>
+                    <path d="M20 32L28 40L44 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2 class="success-title">Thanks for subscribing!</h2>
+            <p class="success-text">
+                A confirmation email has been sent to <strong id="confirmedEmail"></strong>. Please open it and click the button inside to confirm your subscription.
+            </p>
+            <button class="dismiss-btn" id="dismissBtn" type="button">Dismiss message</button>
+        </div>
+    </div>
+
+    <script src="/scripts.js"></script>
+</body>
+</html>
