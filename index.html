@@ -43,13 +43,15 @@
         </div>
         <div class="image-section">
             <div class="image-placeholder">
-                <!-- Replace this with your actual image -->
-                <img src="assets/images/illustration-sign-up-desktop.svg" alt="Newsletter illustration" class="hero-image">
+             <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/illustration-sign-up-mobile.svg">
+            <img src="assets/images/illustration-sign-up-desktop.svg" alt="Newsletter illustration" class="hero-image">
+        </picture>
             </div>
         </div>
     </div>
 
-    <!-- Success Modal Popup -->
+
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <div class="success-icon">
