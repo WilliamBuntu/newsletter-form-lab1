@@ -45,7 +45,9 @@ A modern, responsive, and accessible newsletter subscription form built with HTM
 ## Screenshots
 
 ![img.png](img.png)
-
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
 ## License
  - Owned by [WilliamBuntu]
 
