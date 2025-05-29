@@ -36,7 +36,7 @@ class NewsletterForm {
             }
         });
         
-        // Close modal with Escape key
+        // Close modal with an Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.modalOverlay.classList.contains('show')) {
                 this.dismissModal();
@@ -107,7 +107,6 @@ class NewsletterForm {
         if (this.validateEmail()) {
             this.showModal();
         } else {
-            this.showError();
             this.shakeInput();
         }
     }
@@ -184,14 +183,12 @@ class NewsletterForm {
         this.emailInput.classList.add('shake');
         setTimeout(() => {
             this.emailInput.classList.remove('shake');
-        }, 500);
+        }, 700);
     }
 
     showModal() {
-        const email = this.emailInput.value.trim();
-        
         // Update confirmed email
-        this.confirmedEmail.textContent = email;
+        this.confirmedEmail.textContent = this.emailInput.value.trim();
         
         // Show modal
         this.modalOverlay.classList.add('show');
@@ -252,25 +249,7 @@ class NewsletterForm {
     }
 }
 
-// Enhanced form validation utilities
-class FormValidator {
-    static isValidEmail(email) {
-        // More comprehensive email validation
-        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-        return emailRegex.test(email);
-    }
 
-    static sanitizeEmail(email) {
-        return email.trim().toLowerCase();
-    }
-
-    static checkEmailDomain(email) {
-        // Optional: Check for common email providers
-        const commonDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'company.com'];
-        const domain = email.split('@')[1];
-        return commonDomains.includes(domain) || domain.includes('.');
-    }
-}
 
 // Performance monitoring
 class PerformanceMonitor {
@@ -302,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Setup error handling
     setupErrorHandling();
+
     
     console.log('Newsletter form initialized successfully');
 });
@@ -321,7 +301,7 @@ function enhanceUserExperience() {
 function setupErrorHandling() {
     window.addEventListener('error', (e) => {
         console.error('Newsletter form error:', e.error);
-        // Could send to analytics service
+
     });
     
     // Handle unhandled promise rejections
@@ -330,7 +310,3 @@ function setupErrorHandling() {
     });
 }
 
-// Export for testing (if needed)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { NewsletterForm, FormValidator, PerformanceMonitor };
-}

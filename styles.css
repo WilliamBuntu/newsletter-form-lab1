@@ -389,25 +389,25 @@ body {
     }
 
     /* Mobile Modal Adjustments */
-/* Full Screen Modal Adjustments */
+
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: white; /* Changed from semi-transparent to solid white */
-    
-    /* Removed centering - let content flow naturally */
+    background-color: white; 
+
     padding: 0;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 }
 
 .modal-content {
     padding: 60px 24px 40px 24px; /* More top padding, less bottom */
     width: 100%;
-    height: 100vh; /* Full screen height */
-    border-radius: 0; /* Remove border radius for full screen */
+    height: 100vh; 
+    border-radius: 0;
+    box-shadow: none;
     background-color: white;
     text-align: center;
     
@@ -416,19 +416,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+   
 }
 
 .modal-content .success-title {
     font-size: 2rem;
-    margin: 24px 0 16px 0; /* Add some spacing */
+    margin: 24px 0 16px 0; 
 }
 
 .modal-content .success-text {
     font-size: 14px;
     line-height: 1.5;
-    margin-bottom: 40px; /* Space before button */
-    max-width: 320px; /* Limit text width for readability */
+    margin-bottom: 40px; 
+    max-width: 320px; 
 }
 
 .success-icon {
@@ -436,14 +436,13 @@ body {
 }
 
 .dismiss-btn {
-    margin-top: auto; /* Push button towards bottom */
-    margin-bottom: 40px; /* Some space from very bottom */
+    margin-top: 70px; /* Push button towards bottom */
+    margin-bottom: 10px; /* Some space from very bottom */
     width: 100%;
-    max-width: 320px; /* Match text width */
+    max-width: 320px; 
     padding: 16px;
     border-radius: 8px;
     border: none;
-    /* background-color: #374151;  */
     color: white;
     font-size: 16px;
     font-weight: 500;
@@ -479,7 +478,7 @@ body {
 }
 
 /* High Contrast Mode Support */
-@media (prefers-contrast: high) {
+@media (prefers-contrast: more) {
     .form-input {
         border-width: 2px;
     }
