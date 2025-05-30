@@ -108,6 +108,7 @@ class NewsletterForm {
             this.showModal();
         } else {
             this.shakeInput();
+            this.setError('Please enter a valid email address');
         }
     }
 
@@ -251,30 +252,10 @@ class NewsletterForm {
 
 
 
-// Performance monitoring
-class PerformanceMonitor {
-    static measureFormInteraction(action) {
-        if ('performance' in window) {
-            performance.mark(`newsletter-${action}-start`);
-        }
-    }
-
-    static endMeasurement(action) {
-        if ('performance' in window) {
-            performance.mark(`newsletter-${action}-end`);
-            performance.measure(
-                `newsletter-${action}`,
-                `newsletter-${action}-start`,
-                `newsletter-${action}-end`
-            );
-        }
-    }
-}
-
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize the newsletter form
-    const newsletterForm = new NewsletterForm();
+     new NewsletterForm();
     
     // Add some enhancement for better UX
     enhanceUserExperience();
@@ -308,5 +289,9 @@ function setupErrorHandling() {
     window.addEventListener('unhandledrejection', (e) => {
         console.error('Newsletter form promise rejection:', e.reason);
     });
+}
+
+function PerformanceMonitor() {
+    return false;
 }
 
